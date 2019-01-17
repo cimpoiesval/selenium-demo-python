@@ -15,11 +15,11 @@ class BaseTests:
 
         def setUp(self):
             if self.get_driver_name() == "chrome":
-                self.driver = webdriver.Chrome('../drivers/chromedriver.exe')
+                self.driver = webdriver.Chrome('./drivers/chromedriver.exe')
             if self.get_driver_name() == "firefox":
-                self.driver = webdriver.Firefox(executable_path=r'../drivers/geckodriver.exe')
+                self.driver = webdriver.Firefox(executable_path=r'./drivers/geckodriver.exe')
             else:
-                self.driver = webdriver.Chrome('../drivers/chromedriver.exe')
+                self.driver = webdriver.Chrome('./drivers/chromedriver.exe')
             self.driver.get("https://www.alza.cz/")
 
         def tearDown(self):

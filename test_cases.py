@@ -1,5 +1,5 @@
-from scenarios.setup import BaseTests
-from pages.pages import HomePage
+from setup import BaseTests
+from pages import HomePage
 
 
 class TestProduct(BaseTests.SetupTests):

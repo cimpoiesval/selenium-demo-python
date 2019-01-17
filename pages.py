@@ -2,7 +2,7 @@ import re
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.locators import *
+from locators import *
 
 
 class BasePage(object):
