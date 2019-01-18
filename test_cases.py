@@ -1,7 +1,8 @@
 from setup import BaseTests
 from pages import HomePage
+import pytest
 
-
+@pytest.mark.usefixtures("driver_init")
 class TestProduct(BaseTests.SetupTests):
 
     def test_product_info(self):
