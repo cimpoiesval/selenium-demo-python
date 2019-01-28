@@ -11,18 +11,19 @@ class BaseTests:
         def driver_init(self, request):
             current_browser = request.config.getoption("--browser")
             if current_browser == "chrome":
-                self.web_driver = webdriver.Chrome('./drivers/chromedriver.exe')
+                self.driver = webdriver.Chrome('./drivers/chromedriver.exe')
             if current_browser == "firefox":
-                self.web_driver = webdriver.Firefox(executable_path=r'./drivers/geckodriver.exe')
+                self.driver = webdriver.Firefox(
+                    executable_path=r'./drivers/geckodriver.exe')
             else:
-                self.web_driver = webdriver.Chrome('./drivers/chromedriver.exe')
+                self.driver = webdriver.Chrome('./drivers/chromedriver.exe')
 
             self.session = request.node
             for item in self.session.items:
                 cls = item.getparent(pytest.Class)
-                setattr(cls.obj, "driver", self.web_driver)
+                setattr(cls.obj, "driver", self.driver)
             yield
-            self.web_driver.close()
+            self.driver.close()
 
         @pytest.fixture(autouse=True)
         def around_tests(self):

@@ -29,7 +29,8 @@ class BasePage(object):
 class HomePage(BasePage):
     def navigate_to_wearables(self):
         self.hover(*HomePageLocators.smart_menu)
-        self.wait.until(EC.element_to_be_clickable(HomePageLocators.wearables_menu)).click()
+        self.wait.until(EC.element_to_be_clickable(
+            HomePageLocators.wearables_menu)).click()
         return CategoryPage(self.driver)
 
 
